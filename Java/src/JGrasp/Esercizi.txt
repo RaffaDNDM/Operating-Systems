@@ -1,0 +1,129 @@
+Suggerimenti generali.
+- Si scelga il tema (prendendo nota del numero del tema).
+- Impostare la(e) classe(i) richiesta(e) esplicitando prima di tutto le interfacce dei costruttori e dei metodi.
+- Identificare le variabili condivise e commentarle opportunamente.
+- Sfruttare il meccanismo delle classi interne laddove conveniente.
+- Anche se non esplicitamente richiesto, nella fase di impostazione aiutarsi con uno degli strumenti descrittivi introdotti (grafo di precedenza, grafo di stato, Rete di Petri, diagramma bidimensionale degli stati, grafo di Holt).
+- Aggiungere l'output di stringhe diagnostiche e, anche se non esplicitamente richiesto, inserire un main di collaudo.
+
+
+
+Temi
+----
+
+1 - Realizzare, usando i semafori, un allocatore di un sistema
+di due pool r1 e r2 di, rispettivamente, n1 ed n2 risorse equivalenti,
+utilizzando l'algoritmo del banchiere (in forma stretta). Si realizzino
+i seguenti metodi thread-safe
+
+- void register(int max1, int max2)
+il thread chiamante dichiara che richiedera' al massimo, rispettivamente,
+max1 per r1 e max2 per r2 risorse complessive prima di restituire
+tutte quelle che ha precedentemente (al rilascio) allocate;
+il metodo solleva l'eccezione NotAllowedException se
+la richiesta viene effettuata quando il thread chiamante ha qualcuna
+delle risorse di r1 eo r2.
+
+- boolean alloc(int req1, int req2)
+chiamata non sospensiva per allocare rispettivamente req1 e req2
+risorse da r1 e r2; restituisce true se l'allocazione ha avuto luogo,
+false se non era immediatamente possibile; solleva NotAllowedException
+se una richiesta supera il massimo dichiarato (attualmente valido,
+cioè quello dell'ultima chiamata register()).
+
+- boolean alloc(int req1, int req2, long timeout)
+come la precedente ma sospensiva fino a quando l'allocazione Ë possibile
+o è scaduto il timeout.
+
+- void release()
+il thread chiamante rilascia tutte le risorse che aveva precedentemente
+allocato.
+
+- void query()
+restituisce il numero di risorse di tipo r1 ed r2 allocate al thread
+chiamante adottare un opportuno sistema di parametri per restituire
+questa informazione.
+
+Prevedere un metodo di collaudo che inizializzi all'atto della costruzione
+tutti i parametri di configurazione del sistema, prelevando
+i valori più significativi dalla linea di comando.
+
+Suggerimento per l'archiviazione delle informazioni utili, l'allocatore
+utilizzi un'opportuna struttura dati della libreria standard di Java, rendendola
+thread-safe se non lo è già .
+
+---
+
+
+2 - Come 1 ma usando il Monitor (di Hoare);
+
+---
+
+3 - Come 1 ma usando il Monitor di Java;
+
+---
+
+4 - Come 1 ma usando ADA-Java
+
+---
+
+5 - Realizzare la classe Spinlock che implementa il semaforo numerico in una forma
+con parziale busy-waiting. Si forniscano i metodi p(), p(long timeout), v()
+come nella classe Semaphore. Il thread che deve attendere si spospende con uno
+sleep per un tempo variabile prima di rivalutare la condizione sul semaforo. Per
+ridurre il busy waiting tale tempo vale, nell'ordine, 8T, 4T, 2T, 1T, 8T,
+4T ecc. ciclicamente finchè l'attesa termina con la condizione verificata. T sia
+una costante temporale adeguatamente impostata.
+Collaudare la classe Spinlock con un modello ProduttoreConsumatore a buffer
+multiplo utilizzando le classi Producer, Consumer, TestPC della libreria.
+
+---
+
+8 - Come 7 ma con Monitor (di Hoare).
+
+---
+
+9 - Come 7 ma con Monitor di Java.
+
+---
+
+10 - Modificare l'esempio di ProduttoreConsumatore con buffer multiplo
+e semafori in modo che il produttore(consumatore) possa scrivere(leggere) più elementi
+in una sola operazione. Gestire nelle chiamate un flag che, a causa di
+limitazioni di spazio del buffer, autorizzi da parte del thread chiamante
+la scrittura nel buffer di una parte degli elementi prodotti
+(in questo caso la chiamata deve restituire quanti elementi
+sono stati effettivamente scritti), oppure il consumo di una
+parte della richiesta (gli elementi che ci sono in quel momento nel buffer,
+anche 0). Al posto del flag si possono definire più chiamate overloaded.
+
+---
+
+11 - Come 10 ma con il Monitor di Hoare.
+
+---
+
+12 - Realizzare un gestore di lock secondo il protocollo lettoriscrittori.
+A tale scopo si prevedano metodi eventualmente sospensivi per
+- chiedere un lock esclusivo
+(un solo thread alla volta puv= ottenerlo e mantenerlo per un certo tempo)
+- chiedere un lock condiviso
+(più thread possono ottenere questo tipo di lock)
+- rilasciare un lock esclusivo
+- rilaciare un lock condiviso
+- interrogare sullo stato globale (libero, lock esclusivo assegnato,
+numero di lock condivisi assegnati)
+Per la sincronizzazione si usino i semafori.
+Affrontare eventuali problemi di starvation.
+
+---
+
+13 - Come 12 ma con Monitor (di Hoare).
+
+---
+
+14 - Come 12 ma con Monitor di Java.
+
+---
+
+15 - Come 12 ma usando ADA-Java
