@@ -107,7 +107,7 @@ public class MutexSem extends Semaphore
      * @return owner precedente
      */
     public Thread setOwner()
-    {
+    {  
         Thread old = mOwner;
         mOwner = Thread.currentThread();
         return old; 

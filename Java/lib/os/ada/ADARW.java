@@ -5,6 +5,7 @@ package os.ada;
  * dello scrittore
  * @author M.Moro DEI UNIPD
  * @version 1.00 2010-12-12
+ * @version 1.01 2019-05-25  deprecated eliminato
 */
 
 public class ADARW extends ADAThread implements ADARWStr
@@ -120,7 +121,8 @@ public class ADARW extends ADAThread implements ADARWStr
           {
             public Object exec(Object inp)
             {
-                return new Integer(writers ? -readers : readers);
+// v.1.01 deprecated                return new Integer(writers ? -readers : readers);
+                return Integer.valueOf(writers ? -readers : readers);
             }
           } //{c} <anonim>
           );

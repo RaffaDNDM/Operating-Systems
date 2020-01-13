@@ -8,6 +8,7 @@ import os.ada.ADAThread.Select;
  *
  * @author M.Moro DEI UNIPD
  * @version 1.00 2010-12-19
+ * @version 1.01 2019-05-25  deprecated eliminato
 */
 
 public class ADAIncDec
@@ -98,7 +99,8 @@ public class ADAIncDec
               {
                 public Object exec(Object inp)
                 {
-                    return new Integer(val());
+// v.1.01 deprecated                    return new Integer(val());
+                    return Integer.valueOf(val());
                 }
               } //{c} <anonim>
               );

@@ -7,6 +7,7 @@ import os.Util;
  *
  * @author M.Moro DEI UNIPD
  * @version 1.00 2010-12-30
+ * @version 1.01 2019-05-25 deprecated eliminato
 */
 
 public class ADABox
@@ -82,7 +83,8 @@ public class ADABox
           // attende allocazione dei servizi
         
         System.err.println("** put");
-        th.entryCall(new Integer(27), "BOX", "put");
+// v1.01 deprecated        th.entryCall(new Integer(27), "BOX", "put");
+        th.entryCall(Integer.valueOf(27), "BOX", "put");
         System.err.println("** get");
         CallOut ret = th.entryCall(null, "BOX", "get");
         System.err.println("** Val="+(Integer)ret.getParams());

@@ -6,6 +6,7 @@ package os.ada;
  *
  * @author M.Moro DEI UNIPD
  * @version 1.00 2010-12-22
+ * @version 1.01 2019-05-25  deprecated eliminati
 */
 
 public class ADAAll123 extends ADAThread implements ADAAll123Str
@@ -50,7 +51,8 @@ public class ADAAll123 extends ADAThread implements ADAAll123Str
             {
                 // parametro di input non significativo
                 risorse -= 3;
-                return new Integer(risorse);
+// v1.01 deprecated                return new Integer(risorse);
+                return Integer.valueOf(risorse);
             }
           } //{c} <anonim>
           );
@@ -71,7 +73,8 @@ public class ADAAll123 extends ADAThread implements ADAAll123Str
             {
                 // parametro di input non significativo
                 risorse -= 2;
-                return new Integer(risorse);
+// v1.01 deprecated                return new Integer(risorse);
+                return Integer.valueOf(risorse);
             }
           } //{c} <anonim>
           );
@@ -93,7 +96,8 @@ public class ADAAll123 extends ADAThread implements ADAAll123Str
             {
                 // parametro di input non significativo
                 risorse -= 1;
-                return new Integer(risorse);
+// v1.01 deprecated                return new Integer(risorse);
+                return Integer.valueOf(risorse);
             }
           } //{c} <anonim>
           );
@@ -107,7 +111,8 @@ public class ADAAll123 extends ADAThread implements ADAAll123Str
                 // parametro di input risorse rilasciate 1..3
                 int ris = ((Integer)inp).intValue();
                 risorse += ris;
-                return new Integer(risorse);
+// v1.01 deprecated                return new Integer(risorse);
+                return Integer.valueOf(risorse);
             }
           } //{c} <anonim>
           );

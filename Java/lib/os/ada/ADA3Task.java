@@ -7,6 +7,7 @@ import os.Util;
  * 
  * @author M.Moro DEI UNIPD
  * @version 1.00 2011-01-04
+ * @version 1.01 2019-05-25 deprecated aliminato
 */
 
 public class ADA3Task implements ADA3TaskStr
@@ -99,7 +100,9 @@ System.out.println("!!1 start");
                 // simula lettura di un valore con numero casuale
                 int val = Util.randVal(1,100);
 System.out.println("!!2 end read val="+val);
-                entryCall(new Integer(val), SYNCSTR, ERSTR);
+// v1.01 deprecated
+//                entryCall(new Integer(val), SYNCSTR, ERSTR);
+                entryCall(Integer.valueOf(val), SYNCSTR, ERSTR);
                 Util.sleep(2000L);
             } // for
         } //[m] run

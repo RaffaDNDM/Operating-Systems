@@ -1,0 +1,31 @@
+// file generato da PGraph
+//   numero dei nodi
+8
+//   peso e nome dei nodi
+1 a
+1 b
+1 c
+1 d
+1 e
+1 f
+1 g
+1 h
+//   archi orientati
+a b
+a c
+b d
+b e
+c h
+d f
+e g
+f g
+g h
+Livelli del grafo
+Livello 0 nodo/i: a (grado di paral. del livello=1)
+Livello 1 nodo/i: b c (grado di paral. del livello=2)
+Livello 2 nodo/i: d e c' (grado di paral. del livello=3)
+Livello 3 nodo/i: f e' c'' (grado di paral. del livello=3)
+Livello 4 nodo/i: g c''' (grado di paral. del livello=2)
+Livello 5 nodo/i: h (grado di paral. del livello=1)
+Massimo grado di parallelismo=3
+Tempo di esecuzione=6

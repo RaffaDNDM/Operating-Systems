@@ -11,6 +11,7 @@ package os;
  * @version 2.04 2005-10-28 aggiunto Condition.queue()
  * @version 2.05 2014-05-02 gestione corretta del timeout su condition
  * @version 2.06 2014-05-06 nesting mEnter correttamente implementato
+ * @version 2.07 2019-05-25 condizione di corsa su nesting del mutex
  */
 
 public class Monitor
@@ -46,7 +47,8 @@ public class Monitor
          * costruttore pubblico
          */
         public Condition()
-        {}        
+        {
+        }        
           
         /**[m]
          * wait sul condition
@@ -247,7 +249,17 @@ public class Monitor
         }
         
         if (urgentCount > 0)
+        {
+            // 2.07 questo thread deve subito perdere il possesso del mutex
+            // prima di risvegliare quello in urgent, altrimenti proseguendo puo'
+            // arrivare a eseguire un p() che incrementa il lockcount
+            // prima che il risvegliato riesca a ottenere l'ownership 
+            // questo provoca una situazione di errore che solleva l'eccezione
+            // legata al non posesso
+            mutex.setOwner(null);
+
             urgent.v();
+        }
         else
             mutex.v();
     }

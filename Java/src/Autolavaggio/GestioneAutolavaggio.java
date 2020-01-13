@@ -12,7 +12,7 @@ public class GestioneAutolavaggio
 		
 		int num_cars = Integer.parseInt(input.nextLine());
 		
-		System.out.println("Scegliere il tipo di programma da eseuire");
+		System.out.println("Scegliere il tipo di programma da eseguire");
 		System.out.println("1. Monitor di Hoare");
 		System.out.println("2. Monitor di Java");
 		System.out.println("3. Regione critica");

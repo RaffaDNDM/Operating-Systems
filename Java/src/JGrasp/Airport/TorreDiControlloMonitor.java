@@ -119,6 +119,7 @@ public class TorreDiControlloMonitor extends Airport
       
       if (wait_atterraggi>0)
          zonaA_A.cSignal();
+      //controlla che ci siano almeno due richieste prima
       else if(wait_pista>0)
          zonaA_D.cSignal();
          

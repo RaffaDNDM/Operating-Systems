@@ -1,0 +1,25 @@
+// Pgraph2.txt file di input per prova PGraph max parallelismo
+// v1.00 2003-10-10 M.Moro DEI UNIPD
+//   num dei nodi
+8
+//   peso per ciascun nodo e nome nodo
+1 a
+1 b
+1 c
+1 d
+1 e
+1 f
+1 g
+1 h
+//   archi
+a b
+a c
+b d
+b e
+d f
+f g
+e g
+g h
+c h
+
+// il massimo parallelismo e` qui 3

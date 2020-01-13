@@ -5,6 +5,7 @@ package os.ada;
  * 
  * @author M.Moro DEI UNIPD
  * @version 1.00 2010-12-12
+ * @version 1.01 2019-05-25 deprecated eliminato
 */
 
 public class ADANSem extends ADAThread implements ADANSemStr
@@ -71,7 +72,8 @@ public class ADANSem extends ADAThread implements ADANSemStr
           {
             public Object exec(Object inp)
             {
-                return new Integer(semVal);
+// v1.01 deprecated                return new Integer(semVal);
+                return Integer.valueOf(semVal);
             }
           } //{c} <anonim>
           ;

@@ -23,6 +23,7 @@ import java.util.Vector;
  * @version 1.00 2003-10-11
  * @version 1.01 2005-10-05 package os e output completo su file in italiano
  * @version 1.02 2009-10-14 utilizzati i generics per Vector
+ * @version 1.03 2019-05-25 eliminate deprecazioni
  */
 
 public class PGraph
@@ -403,7 +404,8 @@ public class PGraph
                 } // for i
             } // for j
 //v1.02 old 		((Vector)retLevels.elementAt(curLev)).add(new Integer(parDegree));
-            (retLevels.elementAt(curLev)).add(new Integer(parDegree));
+// v1.03 old            (retLevels.elementAt(curLev)).add(new Integer(parDegree));
+            (retLevels.elementAt(curLev)).add(Integer.valueOf(parDegree));
               // aggiunge alla lista, come ultimo elemento, il grado di
               // parallelismo  del livello
             curQue = ++curQue % 2;

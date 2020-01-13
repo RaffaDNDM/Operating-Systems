@@ -5,6 +5,7 @@ package os.ada;
  * 
  * @author M.Moro DEI UNIPD
  * @version 1.00 2010-12-12
+ * @version 1.01 2019-05-25 deprecated eliminato
 */
 
 public class ADAMBuf extends ADAThread
@@ -82,7 +83,8 @@ public class ADAMBuf extends ADAThread
             public Object exec(Object inp)
             {
                 // parametro di input non significativo
-                return new Integer(numEl);
+// v1.01 deprecated                return new Integer(numEl);
+                return Integer.valueOf(numEl);
             }
           } //{c} <anonim>
           );

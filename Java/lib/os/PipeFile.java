@@ -9,6 +9,7 @@ import java.io.*;
  * @version 1.00 2002-05-07
  * @version 2.00 2003-09-30 package Os
  * @version 2.01 2005-10-07 package os
+ * @version 2.02 2019-05-25 deprecated eliminato
  */
 
 public class PipeFile implements Buffer
@@ -93,7 +94,8 @@ public class PipeFile implements Buffer
         { 
             Sys.out.println("Errore lettura da pipe:"+e);
         }
-        return new Character(ret);
+// v2.02 deprecated        return new Character(ret);
+        return Character.valueOf(ret);
     }
 
     /**[m]

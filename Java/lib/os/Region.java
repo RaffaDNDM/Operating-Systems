@@ -37,6 +37,7 @@ import java.util.*;
  *                          dell'ordine di accodamento su cond
  * @version 2.03 2009-10-14 usati generics per Map e Stack
  * @version 2.04 2013-06-25 aggiunto metodo count
+ * @version 2.05 2019-05-25 eliminate deprecazioni
  */
 
 
@@ -172,7 +173,8 @@ public class Region
               "Region.leave thread "+name+
               " in level "+((ret==null || ret.curLevel()==NOLEVEL) 
               ? "NOLEVEL" :
-              (new Integer(ret.curLevel())).toString())+
+//v2.05 old              (new Integer(ret.curLevel())).toString())+
+              (Integer.valueOf(ret.curLevel())).toString())+
               " from level "+level);
         // level ok, rimosso
         ret.popLevel();

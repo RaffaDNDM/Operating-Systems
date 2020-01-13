@@ -29,6 +29,5 @@ public abstract class CarWashing
       System.out.println("Clienti in attesa di lavaggio parziale: "+wait_par);
       System.out.println("Clienti che hanno pagato il lavaggio totale: "+done_tot);
       System.out.println("Clienti che hanno pagato il lavaggio parziale: "+done_par);
-      
    }
 }

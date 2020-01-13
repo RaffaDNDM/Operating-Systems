@@ -9,6 +9,7 @@ import os.Timeout;
  * 4 operazioni
  * @author M.Moro DEI UNIPD
  * @version 1.00 2010-12-21
+ * @version 1.01 2019-05-25  deprecated eliminati
 */
 
 public class ADADelayedRV
@@ -82,7 +83,9 @@ public class ADADelayedRV
               {
                 public Object exec(Object inp)
                 {
-                    return new Integer(((OpndObj)inp).op1+
+// v1.01 deprecated                    return new Integer(((OpndObj)inp).op1+
+//                      ((OpndObj)inp).op2);
+                    return  Integer.valueOf(((OpndObj)inp).op1+
                       ((OpndObj)inp).op2);
                 }
               } //{c} <anonim>
@@ -94,7 +97,9 @@ public class ADADelayedRV
               {
                 public Object exec(Object inp)
                 {
-                    return new Integer(((OpndObj)inp).op1-
+// v1.01 deprecated                    return new Integer(((OpndObj)inp).op1-
+//                      ((OpndObj)inp).op2);
+                    return Integer.valueOf(((OpndObj)inp).op1-
                       ((OpndObj)inp).op2);
                 }
               } //{c} <anonim>
@@ -106,7 +111,9 @@ public class ADADelayedRV
               {
                 public Object exec(Object inp)
                 {
-                    return new Integer(((OpndObj)inp).op1*
+// v1.01 deprecated                    return new Integer(((OpndObj)inp).op1*
+//                      ((OpndObj)inp).op2);
+                    return Integer.valueOf(((OpndObj)inp).op1*
                       ((OpndObj)inp).op2);
                 }
               } //{c} <anonim>
@@ -118,7 +125,9 @@ public class ADADelayedRV
               {
                 public Object exec(Object inp)
                 {
-                    return new Integer(((OpndObj)inp).op1/
+// v.1.01 deprecated                    return new Integer(((OpndObj)inp).op1/
+//                      ((OpndObj)inp).op2);
+                    return Integer.valueOf(((OpndObj)inp).op1/
                       ((OpndObj)inp).op2);
                 }
               } //{c} <anonim>
