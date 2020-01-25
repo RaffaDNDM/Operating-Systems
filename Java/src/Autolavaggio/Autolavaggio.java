@@ -1,3 +1,7 @@
+/**
+@author Di Nardo Di Maio Raffaele
+*/
+
 package Autolavaggio;
 
 public abstract class Autolavaggio
@@ -10,9 +14,9 @@ public abstract class Autolavaggio
 			                         "  / /___/ /_/ / /       | |/ |/ / /_/ (__  ) / / / \n"+
 			                         "  \\____/\\__,_/_/        |__/|__/\\__,_/____/_/ /_/  \n"+
 			                         "                                                   \n";
-			                         
-	
-	protected int partial_size=0; //numero complessivo di coloro che hanno già prenotato A
+
+
+	protected int partial_size=0; //numero complessivo di coloro che hanno giï¿½ prenotato A
 	protected int total_size=0; //numero complessivo di coloro che stanno effettuando il servizio in B
 	protected int free_A=NUM_PLACES_A;
 	protected int free_B=NUM_PLACES_B;
@@ -25,7 +29,7 @@ public abstract class Autolavaggio
 
 	public abstract void prenotaParziale();
 	public abstract void pagaParziale();
-	
+
 	public abstract void prenotaTotale();
 	public abstract void lavaInterno();
 	public abstract void pagaTotale();
@@ -38,16 +42,16 @@ public abstract class Autolavaggio
 		System.out.println("-----------------------------------------------------------------------");
 		System.out.println("---- LAVAGGIO:  Parziali = "+partial_size+" Totali = "+total_size+" ----");
 	}
-	
+
 	protected void stampaSituazioneLavaggio()
-    {   
+    {
         System.out.print("Situazione ZONA A: ");
         for(int p=0;p<NUM_PLACES_A;p++)
             if(p<(NUM_PLACES_A-free_A))
                 System.out.print("X");
             else
                 System.out.print("O");
-        
+
         System.out.println("");
         System.out.print("Situazione ZONA B: ");
         for(int q=0;q<NUM_PLACES_B;q++)
@@ -55,18 +59,18 @@ public abstract class Autolavaggio
                 System.out.print("X");
             else
                 System.out.print("O");
-        
+
         System.out.println("");
         System.out.println("Situazione ZONA di PRENOTAZIONE: ");
         System.out.print("-");
         for(int e=0;e<total_wait;e++)
             System.out.print("T");
-        
+
         System.out.println("");
         System.out.print("-");
         for(int r=0;r<partial_wait;r++)
             System.out.print("P");
-        
+
         System.out.println("");
         System.out.println("LAVATI:  Parziali = "+partial_done+" Totali = "+total_done);
     }

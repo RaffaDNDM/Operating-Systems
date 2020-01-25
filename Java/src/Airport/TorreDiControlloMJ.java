@@ -1,3 +1,7 @@
+/**
+@author Di Nardo Di Maio Raffaele
+*/
+
 package Airport;
 
 public class TorreDiControlloMJ extends TorreDiControllo
@@ -8,18 +12,18 @@ public class TorreDiControlloMJ extends TorreDiControllo
 	private int servizioPista=0;
 	private int servizioDecollo=0;
 	private int servizioAtterraggio=0;
-	
+
 	public TorreDiControlloMJ()
 	{
 		type_app="                        MONITOR DI JAVA";
 	}
-	
+
 	public synchronized void richAccessoPista(int io)
 	{
 		int ticket = ticketPista++;
 		attesaPista++;
 		stampaSituazioneAeroporto();
-		
+
 		while(ticket!=servizioPista || liberiA==0 || attesaAtterraggio>0 || prenotaAtt ==1 )
 		{
 			try
@@ -31,7 +35,7 @@ public class TorreDiControlloMJ extends TorreDiControllo
 				e.printStackTrace();
 			}
 		}
-		
+
 		attesaPista--;
 		servizioPista++;
 		liberiA--;
@@ -43,7 +47,7 @@ public class TorreDiControlloMJ extends TorreDiControllo
 		int ticket = ticketDecollo++;
 		attesaDecollo++;
 		stampaSituazioneAeroporto();
-		
+
 		while(ticket!=servizioDecollo || liberiB==0)
 		{
 			try
@@ -55,13 +59,13 @@ public class TorreDiControlloMJ extends TorreDiControllo
 				e.printStackTrace();
 			}
 		}
-		
+
 		attesaDecollo--;
 		servizioDecollo++;
 		liberiA++;
 		liberiB--;
 		stampaSituazioneAeroporto();
-		
+
 		notifyAll();
 	}
 
@@ -70,7 +74,7 @@ public class TorreDiControlloMJ extends TorreDiControllo
 		liberiB++;
 		aereiDecollati++;
 		stampaSituazioneAeroporto();
-		
+
 		notifyAll();
 	}
 
@@ -79,7 +83,7 @@ public class TorreDiControlloMJ extends TorreDiControllo
 		int ticket = ticketAtterraggio++;
 		attesaAtterraggio++;
 		stampaSituazioneAeroporto();
-		
+
 		while(ticket!=servizioAtterraggio || (liberiA<2 || liberiB<2) )
 		{
 			try
@@ -91,7 +95,7 @@ public class TorreDiControlloMJ extends TorreDiControllo
 				e.printStackTrace();
 			}
 		}
-		
+
 		prenotaAtt = 1;
 		liberiA=0;
 		liberiB=0;

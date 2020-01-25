@@ -1,3 +1,7 @@
+/**
+@author Di Nardo Di Maio Raffaele
+*/
+
 package Autolavaggio;
 
 import os.Util;
@@ -6,13 +10,13 @@ public class VeicoloTotale extends Thread
 {
 		private int n;
 		private Autolavaggio al;
-		
+
 		public VeicoloTotale(int n, Autolavaggio al)
 		{
 			this.n=n;
 			this.al=al;
 		}
-		
+
 		public void run()
 		{
 			Util.rsleep(1000, 3000);

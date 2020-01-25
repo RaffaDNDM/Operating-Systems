@@ -1,3 +1,7 @@
+/**
+@author Di Nardo Di Maio Raffaele
+*/
+
 package Fontebella;
 
 import os.Region;
@@ -6,7 +10,7 @@ import os.RegionCondition;
 public class FontebellaBathsRegion extends FontebellaBaths
 {
 	private Region r;
-	
+
 	public FontebellaBathsRegion()
 	{
 		type_app = "                         REGIONE CRITICA";
@@ -16,7 +20,7 @@ public class FontebellaBathsRegion extends FontebellaBaths
 	public int enterA()
 	{
 		waitA++;
-		
+
 		r.enterWhen(new RegionCondition()
 		{
 			public boolean evaluate()
@@ -24,26 +28,26 @@ public class FontebellaBathsRegion extends FontebellaBaths
 				return freeSpouts>0 && (waitB==0 || priority==0);
 			}
 		});
-		
+
 		waitA--;
 		freeSpouts--;
-		
+
 		priority=2;
-		
+
 		int actual = spout;
 		spout = (spout +1) % NUM_SPOUTS;
-		
+
 		printFontebellaState();
-		
+
 		r.leave();
-		
+
 		return actual;
 	}
 
 	public int enterB()
 	{
 		waitB++;
-		
+
 		r.enterWhen(new RegionCondition()
 		{
 			public boolean evaluate()
@@ -51,20 +55,20 @@ public class FontebellaBathsRegion extends FontebellaBaths
 				return freeSpouts>0 && (waitA==0 || priority>0);
 			}
 		});
-		
+
 		waitB--;
 		freeSpouts--;
-		
+
 		if(waitA>0)
 			priority--;
-		
+
 		int actual = spout;
 		spout = (spout +1) % NUM_SPOUTS;
-		
+
 		printFontebellaState();
-		
+
 		r.leave();
-		
+
 		return actual;
 	}
 
@@ -73,7 +77,7 @@ public class FontebellaBathsRegion extends FontebellaBaths
 		r.enterWhen();
 		freeSpouts++;
 		done_clients++;
-		
+
 		printFontebellaState();
 		r.leave();
 	}

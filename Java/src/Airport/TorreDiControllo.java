@@ -1,3 +1,7 @@
+/**
+@author Di Nardo Di Maio Raffaele
+*/
+
 package Airport;
 
 public abstract class TorreDiControllo
@@ -8,7 +12,7 @@ public abstract class TorreDiControllo
 								   " / ___ |/ / /  / /_/ / /_/ / /  / /_  \n"+
 								   "/_/  |_/_/_/  / .___/\\____/_/   \\__/  \n"+
 								   "             /_/                      \n";
-	                      							     
+
 	public static final int POSTI_A = 2;
 	public static final int POSTI_B = 2;
 	protected int liberiA = POSTI_A;
@@ -21,12 +25,12 @@ public abstract class TorreDiControllo
 	protected int aereiParcheggiati = 0;
 	protected int prenotaAtt = 0;
 	protected String type_app="";
-	
+
 	//*****************DECOLLO********************
 	public abstract void richAccessoPista(int io);
 	public abstract void richAutorizDecollo(int io);
 	public abstract void inVolo(int io);
-	
+
 	//****************ATTERRAGGIO******************
 	public abstract void richAutorizAtterraggio(int io);
 	public abstract void freniAttivati(int io);
@@ -39,7 +43,7 @@ public abstract class TorreDiControllo
 		System.out.println(type_app);
 		System.out.println("------------------------------------------------------------");
 	}
-	
+
 	//*************MONITOR Aeroporto***************
 	public void stampaSituazioneAeroporto()
 	{
@@ -53,7 +57,7 @@ public abstract class TorreDiControllo
 		System.out.println("Aerei decollati    :     "+aereiDecollati);
 		System.out.println("Aerei atterrati    :     "+aereiAtterrati);
 		System.out.println("Aerei parcheggiati :     "+aereiParcheggiati);
-		System.out.println("------------------------------------------------------------");	
+		System.out.println("------------------------------------------------------------");
 	}
-	
+
 }
