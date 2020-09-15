@@ -1,2 +1,2 @@
 # Treni
-See [assignment](Assignment.png).
+See [assignment](Assignment.PNG).
